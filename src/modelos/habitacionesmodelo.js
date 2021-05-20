@@ -11,9 +11,11 @@ var HabitacionesSchema = Schema({
         textoComentario: String,
         calificacionhabitacion: Number,
         calificacionservicio: Number,
-        calificacionestandar: Number,
         idUsuarioComentario: { type: Schema.Types.ObjectId, ref: 'Usuarios' }
     }],
+    calificacionstandarhabitaciones: Number,
+    calificacionstandarservicio: Number,
+    calificacionstandar: Number
 })
 
 module.exports = mongoose.model('Habitaciones', HabitacionesSchema)

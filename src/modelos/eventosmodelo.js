@@ -2,10 +2,12 @@ const mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var EventoShema = Schema({
-    IdHotel: String,
-    TipoEvento: String,
-    CantidadDePersonas: Number,
+    nombre: String,
+    iddelhotel: String,
+    tipodeevento: String,
+    cantidadepersonas: Number,
     detalles: String,
+    imagen: String,
     valor: Number,
     listaComentarios: [{
         textoComentario: String,

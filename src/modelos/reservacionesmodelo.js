@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var ReservacioneSchema = Schema({
+    FechaDeReservacion: Date,
     FechaInicio: Date,
     FechaSalida: Date,
     IdHotel: String,

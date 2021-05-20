@@ -48,6 +48,7 @@ api.delete("/EliminarTipoDeEventoPorNombre/:idUsuario", md_autenticacion.ensureA
 
 // RUTAS DEL CONTROLADOR DE EVENTOS
 api.post("/AgregarEvento/:idUsuario", md_autenticacion.ensureAuth, ControladoEventos.AgregarEvento)
+api.post("/VerTodosLosTiposDeEventos", md_autenticacion.ensureAuth, ControladoEventos.VerTodosLosTiposDeEventos)
 
 // RUTAS DEL CONTROLADOR DE HABITACIONES
 
