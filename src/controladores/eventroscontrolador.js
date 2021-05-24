@@ -1,4 +1,5 @@
 'use strict'
+
 // IMPORTACIONES
 const Hoteles = require("../modelos/hotelesmodelo");
 const Usuario = require('../modelos/usuariomodelo');
@@ -56,17 +57,64 @@ function AgregarEvento(req, res) {
     })
 }
 
-function VerTodosLosTiposDeEventos(req, res) {
+function VerTodosLosDeEventos(req, res) {
     Eventos.find().exec((err, eventosencontrados) => {
         if (err) return res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
         if (err) console.log("Error en la petición de busqueda")
         if (!eventosencontrados) return res.status(500).send({ Advertencia: "No se encontro eventos" })
         if (!eventosencontrados) console.log("No se encontro eventos")
-        res.status(500).send({ eventosencontrados })
+        res.status(200).send({ eventosencontrados })
+    })
+}
+
+function VerEventoPorNombre(req, res) {
+    var params = req.body;
+    Eventos.findOne({ $or: [{ nombre: params.nombre }] }).exec((err, EventoEncontrado) => {
+        if (err) res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
+        if (err) console.log("Error en la petición de busqueda")
+        if (!EventoEncontrado) return res.status(500).send({ Mensaje: "No se encontro eventos" })
+        if (!EventoEncontrado) console.log("No se encontro eventos")
+        res.status(200).send({ EventoEncontrado })
+    })
+}
+
+function EditarEvento(req, res) {
+    var params = req.body;
+    var idDelEvento = req.params.idDelEvento;
+
+    if (req.user.rol != 'ROL_ADMIN') {
+        return res.status(500).send({ mensaje: 'Solo puede eliminar el Administrador.' })
+    }
+
+    Eventos.findOneAndUpdate(idDelEvento, params, { new: true }, (err, EventoActualizado) => {
+        if (err) return res.status(500).send({ Advertencia: "Error en la petición de eliminación" })
+        if (err) console.log("Error en la petición de eliminación")
+        if (!EventoActualizado) return res.status(500).send({ Advertencia: "No se pudo eliminar el hotel" })
+        if (!EventoActualizado) console.log("No se pudo eliminar el hotel")
+        res.status(200).send({ EventoActualizado })
+    })
+}
+
+function EliminarEvento(req, res) {
+    var idDelEvento = req.params.idDelEvento;
+
+    if (req.user.rol != 'ROL_ADMIN') {
+        return res.status(500).send({ mensaje: 'Solo puede eliminar el Administrador.' })
+    }
+
+    Eventos.findOneAndDelete(idDelEvento, (err, EliminarEvento) => {
+        if (err) return res.status(500).send({ Advertencia: "Error en la petición de eliminación" })
+        if (err) console.log("Error en la petición de eliminación")
+        if (!EliminarEvento) return res.status(500).send({ Mensaje: "No se pudo eliminar el evento" })
+        if (!EliminarEvento) console.log("No se pudo eliminar el evento")
+        res.status(200).send({ EliminarEvento })
     })
 }
 
 module.exports = {
     AgregarEvento,
-    VerTodosLosTiposDeEventos
+    VerTodosLosDeEventos,
+    VerEventoPorNombre,
+    EditarEvento,
+    EliminarEvento
 }

@@ -17,7 +17,8 @@ var EventoShema = Schema({
     }],
     calificacionstandarhabitaciones: Number,
     calificacionstandarservicio: Number,
-    calificacionstandar: Number
+    calificacionstandar: Number,
+    contador: Number
 })
 
 module.exports = mongoose.model('Eventos', EventoShema)

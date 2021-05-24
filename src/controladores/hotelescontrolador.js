@@ -47,26 +47,18 @@ function RegistrarHoteles(req, res) {
 }
 
 function EditarHotel(req, res) {
-    const idUsuario = req.params.idUsuario;
     const idHotel = req.params.idHotel;
     var params = req.body;
 
-    Usuario.findOne({ _id: idUsuario }, (err, usuarioEncontrado) => {
-        if (err) return res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
-        if (err) console.log("Error en petición de busqueda")
-
-        if (usuarioEncontrado.rol == "ROL_ADMIN") {
-            Hoteles.findByIdAndUpdate(idHotel, params, { new: true }, (err, hotelactualizado) => {
-                if (err) return res.status(500).send({ mensaje: 'Error en la petición' });
-                if (err) console.log('Error en la petición')
-                if (!hotelactualizado) return res.status(500).send({ Advertencia: "No se pudo actualizar los datos del hotel" })
-                if (!hotelactualizado) console.log("No se pudo actualizar los datos del hotel")
-                return res.status(500).send({ hotelactualizado })
-            })
-        } else {
-            console.log("Solo un usuario administrado puede editar la información hoteles")
-            res.status(500).send({ Advertencia: "Solo un usuario administrado puede editar la información hoteles" })
-        }
+    if (req.user.rol != 'ROL_ADMIN') {
+        return res.status(500).send({ mensaje: 'Solo puede eliminar el Administrador.' })
+    }
+    Hoteles.findByIdAndUpdate(idHotel, params, { new: true }, (err, hotelactualizado) => {
+        if (err) return res.status(500).send({ mensaje: 'Error en la petición' });
+        if (err) console.log('Error en la petición')
+        if (!hotelactualizado) return res.status(500).send({ Advertencia: "No se pudo actualizar los datos del hotel" })
+        if (!hotelactualizado) console.log("No se pudo actualizar los datos del hotel")
+        return res.status(500).send({ hotelactualizado })
     })
 }
 

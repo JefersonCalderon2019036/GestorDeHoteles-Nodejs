@@ -4,8 +4,11 @@ var Schema = mongoose.Schema;
 var HabitacionesSchema = Schema({
     IdHotel: String,
     TipoHabitacion: String,
+    nombre: String,
     Cuartos: Number,
+    cantidadepersonas: Number,
     detalles: String,
+    imagen: String,
     valor: Number,
     listaComentarios: [{
         textoComentario: String,
@@ -15,7 +18,8 @@ var HabitacionesSchema = Schema({
     }],
     calificacionstandarhabitaciones: Number,
     calificacionstandarservicio: Number,
-    calificacionstandar: Number
+    calificacionstandar: Number,
+    contador: Number
 })
 
 module.exports = mongoose.model('Habitaciones', HabitacionesSchema)

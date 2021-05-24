@@ -658,24 +658,19 @@
 				],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "nombre",
-							"value": "Evento Ordinario",
-							"type": "text"
-						}
-					]
+					"urlencoded": []
 				},
 				"url": {
-					"raw": "localhost:3000/api/EliminarTipoDeEventoPorNombre/60a599fb76819306ec5fe6b6",
+					"raw": "localhost:3000/api/EliminarTipoDeEvento/60a599fb76819306ec5fe6b6/60a6e34165a92201dcd8f4ba",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"EliminarTipoDeEventoPorNombre",
-						"60a599fb76819306ec5fe6b6"
+						"EliminarTipoDeEvento",
+						"60a599fb76819306ec5fe6b6",
+						"60a6e34165a92201dcd8f4ba"
 					]
 				}
 			},
@@ -697,7 +692,7 @@
 					"urlencoded": [
 						{
 							"key": "nombre",
-							"value": "Junta de Hoteles",
+							"value": "Noche de estrellas",
 							"type": "text"
 						},
 						{
@@ -712,12 +707,12 @@
 						},
 						{
 							"key": "cantidadepersonas",
-							"value": "12",
+							"value": "0",
 							"type": "text"
 						},
 						{
 							"key": "detalles",
-							"value": "",
+							"value": "Lanzamos globos decorativos al cielo en recuerdo de todos aquellos que ya no estan con nosotros",
 							"type": "text"
 						},
 						{
@@ -727,7 +722,7 @@
 						},
 						{
 							"key": "imagen",
-							"value": "https://images.unsplash.com/photo-1611095786283-c2f965646ef1?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80",
+							"value": "https://images.unsplash.com/photo-1522930600316-3fbc21b657b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1347&q=80",
 							"type": "text"
 						}
 					]
@@ -748,25 +743,1067 @@
 			"response": []
 		},
 		{
-			"name": "Ver Todos Los Tipos De Eventos",
+			"name": "Ver Todos Los Eventos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNTM0MTgxLCJleHAiOjE2MjIwNTI1ODF9.frgy8Yd6FL9QMAe5m__123M4wTlJcSCuBuUaVy4PWm8",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNTQwOTcwLCJleHAiOjE2MjIwNTkzNzB9.-zz8b4zyjkO8vv3DCI7mLXrUKoNp9PDpO7eUXZgiybg",
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
 				"url": {
-					"raw": "localhost:3000/api/VerTodosLosTiposDeEventos",
+					"raw": "localhost:3000/api/VerTodosLosDeEventos",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"VerTodosLosTiposDeEventos"
+						"VerTodosLosDeEventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Evento Por Nombre",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNTQwOTcwLCJleHAiOjE2MjIwNTkzNzB9.-zz8b4zyjkO8vv3DCI7mLXrUKoNp9PDpO7eUXZgiybg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Junta de Hoteles",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/VerEventoPorNombre",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerEventoPorNombre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarEvento /60a599fb76819306ec5fe6b6 /60a6a7f82dc0f33360598453",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNTQwOTcwLCJleHAiOjE2MjIwNTkzNzB9.-zz8b4zyjkO8vv3DCI7mLXrUKoNp9PDpO7eUXZgiybg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "detalles",
+							"value": "Este es un evento para todo los jerentes de los distintos hoteles pertenecientes a esta pagina web",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/EditarEvento/60a599fb76819306ec5fe6b6/60a6a7f82dc0f33360598453",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"EditarEvento",
+						"60a599fb76819306ec5fe6b6",
+						"60a6a7f82dc0f33360598453"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarEvento /60a599fb76819306ec5fe6b6 /60a6a7f82dc0f33360598453",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNTQwOTcwLCJleHAiOjE2MjIwNTkzNzB9.-zz8b4zyjkO8vv3DCI7mLXrUKoNp9PDpO7eUXZgiybg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:3000/api/EliminarEvento/60a599fb76819306ec5fe6b6/60a7cca500082d2b6ca87ea9",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"EliminarEvento",
+						"60a599fb76819306ec5fe6b6",
+						"60a7cca500082d2b6ca87ea9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Tipo De Habitacion /60a599fb76819306ec5fe6b6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNTQwOTcwLCJleHAiOjE2MjIwNTkzNzB9.-zz8b4zyjkO8vv3DCI7mLXrUKoNp9PDpO7eUXZgiybg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Habitaciones matrimoniales",
+							"type": "text"
+						},
+						{
+							"key": "detalles",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/AgregarTipoDeHabitacion/60a599fb76819306ec5fe6b6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"AgregarTipoDeHabitacion",
+						"60a599fb76819306ec5fe6b6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Los Tipos De Habitacion",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNTQwOTcwLCJleHAiOjE2MjIwNTkzNzB9.-zz8b4zyjkO8vv3DCI7mLXrUKoNp9PDpO7eUXZgiybg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/VerLosTiposDeHabitacion",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerLosTiposDeHabitacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Tipo De Habitacion Por Nombre",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNjA0OTI2LCJleHAiOjE2MjIwMzY5MjZ9.tnLvpDMBQk42kIXdeTN-XpYiHBQA2EG4ShHdSExxWEE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Habitaciones matrimoniales",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/VerTipoDeHabitacionPorNombre",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerTipoDeHabitacionPorNombre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Tipo De Habitacion por id /60a599fb76819306ec5fe6b6 /60a6e34165a92201dcd8f4ba",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNjA0OTI2LCJleHAiOjE2MjIwMzY5MjZ9.tnLvpDMBQk42kIXdeTN-XpYiHBQA2EG4ShHdSExxWEE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "detalles",
+							"value": "Es un tipo de Suite mas pequeña que la Suite Principal, pero con la mismos servicios",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/EditarTipoDeHabitacionporid/60a599fb76819306ec5fe6b6/60a6e34165a92201dcd8f4ba",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"EditarTipoDeHabitacionporid",
+						"60a599fb76819306ec5fe6b6",
+						"60a6e34165a92201dcd8f4ba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Tipo De Habitacion /60a599fb76819306ec5fe6b6 /60a6e34165a92201dcd8f4ba",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNjA0OTI2LCJleHAiOjE2MjIwMzY5MjZ9.tnLvpDMBQk42kIXdeTN-XpYiHBQA2EG4ShHdSExxWEE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/EliminarTipoDeHabitacion/60a599fb76819306ec5fe6b6/60a6e34165a92201dcd8f4ba",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"EliminarTipoDeHabitacion",
+						"60a599fb76819306ec5fe6b6",
+						"60a6e34165a92201dcd8f4ba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Un Habitacion /60a599fb76819306ec5fe6b6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNjk3MTk1LCJleHAiOjE2MjIwNDI3OTV9.Ap5gqcWr56-Vg9y81lq1gsmnpJlvzvrS0-LrLcfOFaA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Habitación familiar #2",
+							"type": "text"
+						},
+						{
+							"key": "TipoDeHabitacion",
+							"value": "Habitaciones familiares",
+							"type": "text"
+						},
+						{
+							"key": "hotel",
+							"value": "Los Parques Hoteles",
+							"type": "text"
+						},
+						{
+							"key": "Cuartos",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "cantidadepersonas",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "detalles",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "valor",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/AgregarUnHabitacion/60a599fb76819306ec5fe6b6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"AgregarUnHabitacion",
+						"60a599fb76819306ec5fe6b6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Todas Las Habitaciones",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNjk3MTk1LCJleHAiOjE2MjIwNDI3OTV9.Ap5gqcWr56-Vg9y81lq1gsmnpJlvzvrS0-LrLcfOFaA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/VerTodasLasHabitaciones",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerTodasLasHabitaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Habitaciones Por Tipo De Habitacion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNjk3MTk1LCJleHAiOjE2MjIwNDI3OTV9.Ap5gqcWr56-Vg9y81lq1gsmnpJlvzvrS0-LrLcfOFaA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Habitaciones familiares",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/VerHabitacionesPorTipoDeHabitacion",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerHabitacionesPorTipoDeHabitacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Habitacion Por Hotel",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNjk3MTk1LCJleHAiOjE2MjIwNDI3OTV9.Ap5gqcWr56-Vg9y81lq1gsmnpJlvzvrS0-LrLcfOFaA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Los Parques Hoteles",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/VerHabitacionPorHotel",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerHabitacionPorHotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Habitaciones Por Consto",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNjk3MTk1LCJleHAiOjE2MjIwNDI3OTV9.Ap5gqcWr56-Vg9y81lq1gsmnpJlvzvrS0-LrLcfOFaA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "valor",
+							"value": "200",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/VerHabitacionesPorConsto",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerHabitacionesPorConsto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Habitacion /60a599fb76819306ec5fe6b6 /60a92462c75c2f27c8234d34",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNjk3MTk1LCJleHAiOjE2MjIwNDI3OTV9.Ap5gqcWr56-Vg9y81lq1gsmnpJlvzvrS0-LrLcfOFaA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Cuartos",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "valor",
+							"value": "300",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/EditarHabitacion/60a599fb76819306ec5fe6b6/60a92462c75c2f27c8234d34",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"EditarHabitacion",
+						"60a599fb76819306ec5fe6b6",
+						"60a92462c75c2f27c8234d34"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Habitacion /60a599fb76819306ec5fe6b6 /60a92462c75c2f27c8234d34",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNjk3MTk1LCJleHAiOjE2MjIwNDI3OTV9.Ap5gqcWr56-Vg9y81lq1gsmnpJlvzvrS0-LrLcfOFaA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/EliminarHabitacion/60a599fb76819306ec5fe6b6/60a92462c75c2f27c8234d34",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"EliminarHabitacion",
+						"60a599fb76819306ec5fe6b6",
+						"60a92462c75c2f27c8234d34"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " Agregar Reservacion /60a98fa2e7e2631c745a039c /60a92456c75c2f27c8234d32",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzMyNzM5LCJleHAiOjE2MjIwNzgzMzl9.zzMjJoQcznWTjlOh3KQACRJZzT7Ew90ENGIhm_Pax-w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "FechaInicio",
+							"value": "2021-07-24",
+							"type": "text"
+						},
+						{
+							"key": "FechaSalida",
+							"value": "2021-08-06",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/AgregarReservacion/60a98fa2e7e2631c745a039c/60a92456c75c2f27c8234d32",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"AgregarReservacion",
+						"60a98fa2e7e2631c745a039c",
+						"60a92456c75c2f27c8234d32"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancelar Reservacion /60a98fa2e7e2631c745a039c /60a9993cd08ee42ad8a351fb",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzMyNzM5LCJleHAiOjE2MjIwNzgzMzl9.zzMjJoQcznWTjlOh3KQACRJZzT7Ew90ENGIhm_Pax-w",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/CancelarReservacion/60a98fa2e7e2631c745a039c/60a9c093d805ee3438006de9",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"CancelarReservacion",
+						"60a98fa2e7e2631c745a039c",
+						"60a9c093d805ee3438006de9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Reservacion /60a98fa2e7e2631c745a039c /60a9c093d805ee3438006de9",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzMyNzM5LCJleHAiOjE2MjIwNzgzMzl9.zzMjJoQcznWTjlOh3KQACRJZzT7Ew90ENGIhm_Pax-w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "FechaInicio",
+							"value": "2021-07-10",
+							"type": "text"
+						},
+						{
+							"key": "FechaSalida",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/EditarReservacion/60a98fa2e7e2631c745a039c/60a9c093d805ee3438006de9",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"EditarReservacion",
+						"60a98fa2e7e2631c745a039c",
+						"60a9c093d805ee3438006de9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Reservacion /60a599fb76819306ec5fe6b6 /60a9bfd2d805ee3438006de5",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzMyNzM5LCJleHAiOjE2MjIwNzgzMzl9.zzMjJoQcznWTjlOh3KQACRJZzT7Ew90ENGIhm_Pax-w",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/EliminarReservacion/60a599fb76819306ec5fe6b6/60a9bfd2d805ee3438006de5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"EliminarReservacion",
+						"60a599fb76819306ec5fe6b6",
+						"60a9bfd2d805ee3438006de5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Todos Las Reservaciones Activas Administrador /60a599fb76819306ec5fe6b6",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzMyNzM5LCJleHAiOjE2MjIwNzgzMzl9.zzMjJoQcznWTjlOh3KQACRJZzT7Ew90ENGIhm_Pax-w",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/VerTodosLasReservacionesActivasAdministrador/60a599fb76819306ec5fe6b6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerTodosLasReservacionesActivasAdministrador",
+						"60a599fb76819306ec5fe6b6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Todas Las Reservaciones Canceladas Administrador /60a599fb76819306ec5fe6b6",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzMyNzM5LCJleHAiOjE2MjIwNzgzMzl9.zzMjJoQcznWTjlOh3KQACRJZzT7Ew90ENGIhm_Pax-w",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/VerTodasLasReservacionesCanceladasAdministrador/60a599fb76819306ec5fe6b6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerTodasLasReservacionesCanceladasAdministrador",
+						"60a599fb76819306ec5fe6b6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Todos Las Reservaciones Activas /60a599fb76819306ec5fe6b6",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzQyNDgyLCJleHAiOjE2MjIwODgwODJ9.BMm9gYB1GymeIWnQ5mTAGbezReYLVYoxFUsaP3yVZlc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/VerTodosLasReservacionesActivas/60a599fb76819306ec5fe6b6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerTodosLasReservacionesActivas",
+						"60a599fb76819306ec5fe6b6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Todas Las Reservaciones Canceladas 60a599fb76819306ec5fe6b6",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzQyNDgyLCJleHAiOjE2MjIwODgwODJ9.BMm9gYB1GymeIWnQ5mTAGbezReYLVYoxFUsaP3yVZlc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/VerTodasLasReservacionesCanceladas/60a599fb76819306ec5fe6b6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerTodasLasReservacionesCanceladas",
+						"60a599fb76819306ec5fe6b6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Reservaciones Por Usuario /60a599fb76819306ec5fe6b6",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzQyNDgyLCJleHAiOjE2MjIwODgwODJ9.BMm9gYB1GymeIWnQ5mTAGbezReYLVYoxFUsaP3yVZlc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/VerReservacionesPorUsuario/60a599fb76819306ec5fe6b6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerReservacionesPorUsuario",
+						"60a599fb76819306ec5fe6b6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Todas Las Reservaciones /60a599fb76819306ec5fe6b6",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzQyNDgyLCJleHAiOjE2MjIwODgwODJ9.BMm9gYB1GymeIWnQ5mTAGbezReYLVYoxFUsaP3yVZlc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/VerTodasLasReservaciones/60a599fb76819306ec5fe6b6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"VerTodasLasReservaciones",
+						"60a599fb76819306ec5fe6b6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Comentario En Evento /60a599fb76819306ec5fe6b6 /60a9e7fae93d8a0a84c9eb32",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzQ2NTc0LCJleHAiOjE2MjIwOTIxNzR9.cjYqmMykffP6q05FgiZJlWZX_rEuR5p-Q9NTsCSFwIE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "textoComentario",
+							"value": "Los recuerdos de nuestros seres amados regresara a nuestras manos y le damos una despedida mas para vuelen al cielo sin retornar",
+							"type": "text"
+						},
+						{
+							"key": "calificacionhabitacion",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "calificacionservicio",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/AgregarComentarioEnEvento/60a599fb76819306ec5fe6b6/60a9e7fae93d8a0a84c9eb32",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"AgregarComentarioEnEvento",
+						"60a599fb76819306ec5fe6b6",
+						"60a9e7fae93d8a0a84c9eb32"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Comentario En La Habitacion /60a98fa2e7e2631c745a039c /60a92456c75c2f27c8234d32",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzQ2NTc0LCJleHAiOjE2MjIwOTIxNzR9.cjYqmMykffP6q05FgiZJlWZX_rEuR5p-Q9NTsCSFwIE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "textoComentario",
+							"value": "Una habitación comada con una gran vista y espacio con una gran calidad de servicio",
+							"type": "text"
+						},
+						{
+							"key": "calificacionhabitacion",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "calificacionservicio",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/AgregarComentarioDeHabitacion/60a98fa2e7e2631c745a039c/60a92456c75c2f27c8234d32",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"AgregarComentarioDeHabitacion",
+						"60a98fa2e7e2631c745a039c",
+						"60a92456c75c2f27c8234d32"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editar Comentario En Habitacion /60a92456c75c2f27c8234d32 /60a9ecd2be66142ba8e01c8d",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzc5MjMyLCJleHAiOjE2MjI2NDMyMzJ9.20YJtWgcxD9IbhyrmosiNLZAsBjSn5YgKeSMj9SAW-4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "textoComentario",
+							"value": "0123456789",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/editarComentarioEnHabitacion/60a599fb76819306ec5fe6b6/60a9e7fae93d8a0a84c9eb32/60a9e808e93d8a0a84c9eb33",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"editarComentarioEnHabitacion",
+						"60a599fb76819306ec5fe6b6",
+						"60a9e7fae93d8a0a84c9eb32",
+						"60a9e808e93d8a0a84c9eb33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar Comentario En Evento /60a9e808e93d8a0a84c9eb33",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzc5MjMyLCJleHAiOjE2MjI2NDMyMzJ9.20YJtWgcxD9IbhyrmosiNLZAsBjSn5YgKeSMj9SAW-4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:3000/api/eliminarComentarioEnEvento/60a9e808e93d8a0a84c9eb33",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"eliminarComentarioEnEvento",
+						"60a9e808e93d8a0a84c9eb33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar Comentario En Habitacion /60a9ecd2be66142ba8e01c8d",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MGE1OTlmYjc2ODE5MzA2ZWM1ZmU2YjYiLCJub21icmUiOiJBZG1pbiIsInVzdWFyaW8iOiJBZG1pbiIsImVtYWlsIjoiQWRtaW4iLCJyb2wiOiJST0xfQURNSU4iLCJpbWFnZW4iOiJodHRwczovL2ltZy5mcmVlcGlrLmNvbS92ZWN0b3ItZ3JhdGlzL2F2YXRhci1wZXJzb25hamUtZW1wcmVzYXJpby1haXNsYWRvXzI0ODc3LTYwMTExLmpwZz9zaXplPTMzOCZleHQ9anBnIiwiaWF0IjoxNjIxNzc5MjMyLCJleHAiOjE2MjI2NDMyMzJ9.20YJtWgcxD9IbhyrmosiNLZAsBjSn5YgKeSMj9SAW-4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/eliminarComentarioEnHabitacion/60a9ecd2be66142ba8e01c8d",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"eliminarComentarioEnHabitacion",
+						"60a9ecd2be66142ba8e01c8d"
 					]
 				}
 			},
