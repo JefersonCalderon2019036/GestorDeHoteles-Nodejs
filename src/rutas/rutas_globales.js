@@ -68,9 +68,8 @@ api.delete("/EliminarTipoDeHabitacion/:idUsuario/:IdTipoDeHabitacion", md_autent
 // RUTAS DEL CONTROLADOR DE HABITACIONES
 api.post("/AgregarUnHabitacion/:idUsuario", md_autenticacion.ensureAuth, HabitacionControlador.AgregarUnHabitacion)
 api.get("/VerTodasLasHabitaciones", md_autenticacion.ensureAuth, HabitacionControlador.VerTodasLasHabitaciones)
-api.get("/VerHabitacionesPorTipoDeHabitacion", md_autenticacion.ensureAuth, HabitacionControlador.VerHabitacionesPorTipoDeHabitacion)
 api.get("/VerHabitacionPorHotel/:IdDeLaHabitacion", md_autenticacion.ensureAuth, HabitacionControlador.VerHabitacionPorHotel)
-api.get("/VerHabitacionesPorConsto", md_autenticacion.ensureAuth, HabitacionControlador.VerHabitacionesPorConsto)
+api.get("/VerHabitacionPorid/:IdDeLaHabitacion", md_autenticacion.ensureAuth, HabitacionControlador.VerHabitacionPorid)
 api.put("/EditarHabitacion/:idUsuario/:IdDeLaHabitacion", md_autenticacion.ensureAuth, HabitacionControlador.EditarHabitacion)
 api.delete("/EliminarHabitacion/:idUsuario/:IdDeLaHabitacion", md_autenticacion.ensureAuth, HabitacionControlador.EliminarHabitacion)
 

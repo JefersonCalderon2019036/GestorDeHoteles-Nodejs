@@ -53,7 +53,7 @@ function EditarHotel(req, res) {
     if (req.user.rol != 'ROL_ADMIN') {
         return res.status(500).send({ mensaje: 'Solo puede eliminar el Administrador.' })
     }
-    Hoteles.findByIdAndUpdate(idHotel, params, { new: true }, (err, hotelactualizado) => {
+    Hoteles.findOneAndUpdate(idHotel, params, { new: true }, (err, hotelactualizado) => {
         if (err) return res.status(500).send({ mensaje: 'Error en la petición' });
         if (err) console.log('Error en la petición')
         if (!hotelactualizado) return res.status(500).send({ Advertencia: "No se pudo actualizar los datos del hotel" })

@@ -69,26 +69,6 @@ function VerTodasLasHabitaciones(req, res) {
     })
 }
 
-function VerHabitacionesPorTipoDeHabitacion(req, res) {
-    var params = req.body;
-    TipoDeHabitacion.findOne({ $or: [{ nombre: params.nombre }] }).exec((err, TipoDeHabitacionEncontrado) => {
-        if (err) return res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
-        if (err) console.log("Error en la petición de busqueda")
-        if (!TipoDeHabitacionEncontrado) return res.status(500).send({ Advertencia: "No se encontro ningun tipo de habitacion" })
-        if (!TipoDeHabitacionEncontrado) console.log("No se encontro ningun tipo de habitacion")
-
-        Habitacion.find({ $or: [{ TipoHabitacion: TipoDeHabitacionEncontrado._id }] }).exec((err, hotelencontrado) => {
-            if (err) return res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
-            if (err) console.log("Error en la petición de busqueda")
-            if (hotelencontrado && hotelencontrado.length >= 1) {
-                res.status(200).send({ hotelencontrado })
-            } else {
-                console.log("No se encontro ninguna habitación")
-                res.status(500).send({ Advertencia: "No se encontro ninguna habitación" })
-            }
-        })
-    })
-}
 
 function VerHabitacionPorHotel(req, res) {
     var IdDeLaHabitacion = req.params.IdDeLaHabitacion;
@@ -104,17 +84,14 @@ function VerHabitacionPorHotel(req, res) {
     })
 }
 
-function VerHabitacionesPorConsto(req, res) {
-    var params = req.body;
-    Habitacion.find({ $or: [{ valor: params.valor }] }).exec((err, hotelencontrado) => {
-        if (err) return res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
+function VerHabitacionPorid(req, res) {
+    var IdDeLaHabitacion = req.params.IdDeLaHabitacion;
+    Habitacion.findOne({ $or: [{ _id: IdDeLaHabitacion }] }).exec((err, HabitacionEncontrada) => {
+        if (err) res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
         if (err) console.log("Error en la petición de busqueda")
-        if (hotelencontrado && hotelencontrado.length >= 1) {
-            res.status(200).send({ hotelencontrado })
-        } else {
-            console.log("No se encontro ninguna habitación")
-            res.status(500).send({ Advertencia: "No se encontro ninguna habitación" })
-        }
+        if (!HabitacionEncontrada) return res.status(500).send({ Mensaje: "No se encontro eventos" })
+        if (!HabitacionEncontrada) console.log("No se encontro eventos")
+        res.status(200).send({ HabitacionEncontrada })
     })
 }
 
@@ -151,9 +128,8 @@ function EliminarHabitacion(req, res) {
 module.exports = {
     AgregarUnHabitacion,
     VerTodasLasHabitaciones,
-    VerHabitacionesPorTipoDeHabitacion,
     VerHabitacionPorHotel,
-    VerHabitacionesPorConsto,
+    VerHabitacionPorid,
     EditarHabitacion,
     EliminarHabitacion
 }

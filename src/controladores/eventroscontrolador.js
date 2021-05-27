@@ -97,8 +97,8 @@ function EditarEvento(req, res) {
     }
 
     Eventos.findOneAndUpdate(idDelEvento, params, { new: true }, (err, EventoActualizado) => {
-        if (err) return res.status(500).send({ Advertencia: "Error en la petición de eliminación" })
-        if (err) console.log("Error en la petición de eliminación")
+        if (err) return res.status(500).send({ Advertencia: "Error en la petición de para editar" })
+        if (err) console.log("Error en la petición de para editar")
         if (!EventoActualizado) return res.status(500).send({ Advertencia: "No se pudo eliminar el hotel" })
         if (!EventoActualizado) console.log("No se pudo eliminar el hotel")
         res.status(200).send({ EventoActualizado })
