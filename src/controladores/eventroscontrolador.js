@@ -21,7 +21,7 @@ function AgregarEvento(req, res) {
             res.status(500).send({ Advertencia: "Este evento ya existe" })
             console.log("Este evento ya existe")
         } else {
-            Hoteles.findOne({ $or: [{ nombre: params.hotel }] }).exec((err, HotelEncontrado) => {
+            Hoteles.findOne({ $or: [{ _id: params.iddelhotel }] }).exec((err, HotelEncontrado) => {
                 if (err) res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
                 if (err) console.log("Error en la petición de busqueda")
                 if (HotelEncontrado) {
@@ -67,10 +67,20 @@ function VerTodosLosDeEventos(req, res) {
     })
 }
 
-function VerEventoPorNombre(req, res) {
-    var params = req.body;
-    Eventos.findOne({ $or: [{ nombre: params.nombre }] }).exec((err, EventoEncontrado) => {
+function VerEventoPorId(req, res) {
+    var idDelEvento = req.params.idDelEvento;
+    Eventos.findOne({ $or: [{ _id: idDelEvento }] }).exec((err, EventoEncontrado) => {
         if (err) res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
+        if (err) console.log("Error en la petición de busqueda")
+        if (!EventoEncontrado) return res.status(500).send({ Mensaje: "No se encontro eventos" })
+        if (!EventoEncontrado) console.log("No se encontro eventos")
+        res.status(200).send({ EventoEncontrado })
+    })
+}
+
+function VerEventosPorHotel(req, res) {
+    var IdDelEvento = req.params.IdDelEvento;
+    Eventos.find({ $or: [{ iddelhotel: IdDelEvento }] }).exec((err, EventoEncontrado) => {
         if (err) console.log("Error en la petición de busqueda")
         if (!EventoEncontrado) return res.status(500).send({ Mensaje: "No se encontro eventos" })
         if (!EventoEncontrado) console.log("No se encontro eventos")
@@ -114,7 +124,8 @@ function EliminarEvento(req, res) {
 module.exports = {
     AgregarEvento,
     VerTodosLosDeEventos,
-    VerEventoPorNombre,
+    VerEventoPorId,
+    VerEventosPorHotel,
     EditarEvento,
     EliminarEvento
 }

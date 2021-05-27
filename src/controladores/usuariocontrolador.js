@@ -12,14 +12,11 @@ function login(req, res) {
         if (usuarioEncontrado) {
             bcrypt.compare(params.password, usuarioEncontrado.password, (err, passCorrecta) => {
                 if (passCorrecta) {
-                    if (params.obtenerToken === 'true') {
-                        return res.status(200).send({
-                            token: jwt.createToken(usuarioEncontrado)
-                        });
-                    } else {
-                        usuarioEncontrado.password = undefined;
-                        return res.status(200).send({ usuarioEncontrado })
-                    }
+                    return res.status(200).send({
+                        token: jwt.createToken(usuarioEncontrado),
+                        usuarioEncontrado
+                    });
+
                 } else {
                     return res.status(404).send({ mensaje: 'El usuario no se ha podido identificar' })
                 }
@@ -74,10 +71,10 @@ function registrar(req, res) {
 
 function obtenerUsuarioID(req, res) {
     var idUsuario = req.params.idUsuario
-    Usuario.findById(idUsuario, (err, usuarioEncontrado) => {
+    Usuario.findOne({ $or: [{ _id: idUsuario }] }).exec((err, usuarioEncontrado) => {
         if (err) return res.status(500).send({ mensaje: 'Error en la peticion del Usuario' })
-        if (!usuarioEncontrado) return res.status(500).send({ mensaje: 'Error en obtener los datos del Usuario' })
-        console.log(usuarioEncontrado.email);
+        if (!usuarioEncontrado) return res.status(200).send({ mensaje: 'Error en obtener los datos del Usuario' })
+        if (!usuarioEncontrado) console.log("Error en obtener los datos del usuario");
         return res.status(200).send({ usuarioEncontrado })
     })
 }
@@ -102,7 +99,7 @@ function editarUsuario(req, res) {
 
     Usuario.findByIdAndUpdate(idUsuario, params, { new: true }, (err, usuarioActualizado) => {
         if (err) return res.status(500).send({ mensaje: 'Error en la peticion' });
-        if (!usuarioActualizado) return res.status(500).send({ mensaje: 'No se ha podido actualizar al Usuario' });
+        if (!usuarioActualizado) return res.status(200).send({ mensaje: 'No se ha podido actualizar al Usuario' });
         return res.status(200).send({ usuarioActualizado });
     })
 
@@ -116,7 +113,7 @@ function editarUsuarioADMIN(req, res) {
         return res.status(500).send({ mensaje: "Solo el Administrador puede editarlos" })
     }
     Usuario.findByIdAndUpdate(idUsuario, params, { new: true }, (err, usuarioActualizado) => {
-        if (err) return res.status(500).send({ mensaje: 'Error en la peticion' });
+        if (err) return res.status(200).send({ mensaje: 'Error en la peticion' });
         if (!usuarioActualizado) return res.status(500).send({ mensaje: 'No se ha podido actualizar al Usuario' });
         return res.status(200).send({ usuarioActualizado });
     })
@@ -125,12 +122,12 @@ function editarUsuarioADMIN(req, res) {
 function eliminarUsuario(req, res) {
     const idUsuario = req.params.idUsuario;
     if (idUsuario != req.user.sub) {
-        return res.status(500).send({ mensaje: 'No posee los permisos para eliminar a este Usuario.' })
+        return res.status(200).send({ mensaje: 'No posee los permisos para eliminar a este Usuario.' })
     }
     Usuario.findByIdAndDelete(idUsuario, (err, usuarioEliminado) => {
         if (err) return res.status(500).send({ mensaje: 'Error en la petición de Eliminar' })
         if (err) console.log("Error en la petición de eliminar")
-        if (!usuarioEliminado) return res.status(500).send({ mensaje: 'No se pudo eliminar el usuario correctamente' })
+        if (!usuarioEliminado) return res.status(200).send({ mensaje: 'No se pudo eliminar el usuario correctamente' })
         if (!usuarioEliminado) console.log("No se pudo eliminar el usuario correctamente")
         return res.status(200).send({ mensaje: "Se ha eliminado el usuario con el id:" + idUsuario })
     })
@@ -147,13 +144,10 @@ function eliminarUsuarioAdmin(req, res) {
         if (usuarioEncontrado.rol == "ROL_ADMIN") {
             Usuario.findByIdAndDelete(idHotel, (err, usuarioEliminado) => {
                 if (err) return res.status(500).send({ mensaje: 'Error en la petición de Eliminar' })
-                if (err) console.log("Error en la petición de eliminar")
                 if (!usuarioEliminado) return res.status(500).send({ mensaje: 'No se pudo eliminar el usuario correctamente' })
-                if (!usuarioEliminado) console.log("No se pudo eliminar el usuario correctamente")
                 return res.status(200).send({ mensaje: "Se ha eliminado el usuario con el id:" + idHotel })
             })
         } else {
-            console.log("Solo un usuario administrado puede eliminar a otro usuario")
             res.status(500).send({ Advertencia: "Solo un usuario administrado puede eliminar a otro usuario" })
         }
 

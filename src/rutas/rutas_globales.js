@@ -28,7 +28,7 @@ api.post('/Login', usuarioControlador.login);
 // RUTAS DEL CONTROLADOR USUARIO
 api.post('/RegistrarUsuarios', usuarioControlador.registrar);
 api.get('/VerTodosLosUsuarios', md_autenticacion.ensureAuth, usuarioControlador.obtenerUsuarios);
-api.get('/VerSoloUnUsuarioId/:idUsuario', md_autenticacion.ensureAuth, usuarioControlador.obtenerUsuarioID);
+api.get('/VerSoloUnUsuarioId/:idUsuario', usuarioControlador.obtenerUsuarioID);
 api.put('/EditarUsuarios/:idUsuario', md_autenticacion.ensureAuth, usuarioControlador.editarUsuario);
 api.put('/EditarUsuariosAdmin/:idUsuario', md_autenticacion.ensureAuth, usuarioControlador.editarUsuarioADMIN);
 api.delete('/EliminarUsuarios/:idUsuario', md_autenticacion.ensureAuth, usuarioControlador.eliminarUsuario);
@@ -53,7 +53,8 @@ api.delete("/EliminarTipoDeEvento/:idUsuario/:idTipoDeEvento", md_autenticacion.
 // RUTAS DEL CONTROLADOR DE EVENTOS
 api.post("/AgregarEvento/:idUsuario", md_autenticacion.ensureAuth, ControladoEventos.AgregarEvento)
 api.get("/VerTodosLosDeEventos", md_autenticacion.ensureAuth, ControladoEventos.VerTodosLosDeEventos)
-api.get("/VerEventoPorNombre", md_autenticacion.ensureAuth, ControladoEventos.VerEventoPorNombre)
+api.get("/VerEventoPorId/:idDelEvento", md_autenticacion.ensureAuth, ControladoEventos.VerEventoPorId)
+api.get("/VerEventosPorHotel/:IdDelEvento", md_autenticacion.ensureAuth, ControladoEventos.VerEventosPorHotel)
 api.put("/EditarEvento/:idUsuario/:idDelEvento", md_autenticacion.ensureAuth, ControladoEventos.EditarEvento)
 api.delete("/EliminarEvento/:idUsuario/:idDelEvento", md_autenticacion.ensureAuth, ControladoEventos.EliminarEvento)
 
@@ -68,7 +69,7 @@ api.delete("/EliminarTipoDeHabitacion/:idUsuario/:IdTipoDeHabitacion", md_autent
 api.post("/AgregarUnHabitacion/:idUsuario", md_autenticacion.ensureAuth, HabitacionControlador.AgregarUnHabitacion)
 api.get("/VerTodasLasHabitaciones", md_autenticacion.ensureAuth, HabitacionControlador.VerTodasLasHabitaciones)
 api.get("/VerHabitacionesPorTipoDeHabitacion", md_autenticacion.ensureAuth, HabitacionControlador.VerHabitacionesPorTipoDeHabitacion)
-api.get("/VerHabitacionPorHotel", md_autenticacion.ensureAuth, HabitacionControlador.VerHabitacionPorHotel)
+api.get("/VerHabitacionPorHotel/:IdDeLaHabitacion", md_autenticacion.ensureAuth, HabitacionControlador.VerHabitacionPorHotel)
 api.get("/VerHabitacionesPorConsto", md_autenticacion.ensureAuth, HabitacionControlador.VerHabitacionesPorConsto)
 api.put("/EditarHabitacion/:idUsuario/:IdDeLaHabitacion", md_autenticacion.ensureAuth, HabitacionControlador.EditarHabitacion)
 api.delete("/EliminarHabitacion/:idUsuario/:IdDeLaHabitacion", md_autenticacion.ensureAuth, HabitacionControlador.EliminarHabitacion)

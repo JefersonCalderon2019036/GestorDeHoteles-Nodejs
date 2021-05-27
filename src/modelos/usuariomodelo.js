@@ -7,8 +7,7 @@ var UsuarioSchema = Schema({
     email: String,
     password: String,
     rol: String,
-    imagen: String,
-    telefono: String
+    imagen: String
 })
 
 module.exports = mongoose.model('Usuarios', UsuarioSchema)

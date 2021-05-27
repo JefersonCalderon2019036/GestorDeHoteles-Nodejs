@@ -8,28 +8,26 @@ const Hoteles = require("../modelos/hotelesmodelo")
 function AgregarUnHabitacion(req, res) {
     var params = req.body;
     var HabitacionModelo = new Habitacion();
-
     if (req.user.rol != 'ROL_ADMIN') {
         return res.status(500).send({ mensaje: 'Solo puede eliminar el Administrador.' })
     }
-
     Habitacion.findOne({ nombre: params.nombre }, (err, HabitacionEncontrada) => {
         if (err) res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
         if (err) console.log("Error en la petición de busqueda")
 
         if (!HabitacionEncontrada) {
-            TipoDeHabitacion.findOne({ nombre: params.TipoDeHabitacion }, (err, TipoDeHabitacionEncontrada) => {
+            TipoDeHabitacion.findOne({ nombre: params.TipoHabitacion }, (err, TipoDeHabitacionEncontrada) => {
                 if (err) res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
                 if (err) console.log("Error en la petición de busqueda")
 
-                if (!TipoDeHabitacionEncontrada) return res.status(500).send({ Advertencia: "Su tipo de habitación no existe" })
+                if (!TipoDeHabitacionEncontrada) return res.status(200).send({ Advertencia: "Su tipo de habitación no existe" })
                 if (!TipoDeHabitacionEncontrada) console.log("Su tipo de habitación no existe")
 
-                Hoteles.findOne({ nombre: params.hotel }, (err, HotelEncontrado) => {
+                Hoteles.findOne({ _id: params.IdHotel }, (err, HotelEncontrado) => {
                     if (err) res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
                     if (err) console.log("Error en la petición de busqueda")
 
-                    if (!HotelEncontrado) return res.status(500).send({ Advertencia: "Su hotel no existe en esta base de datos" })
+                    if (!HotelEncontrado) return res.status(200).send({ Advertencia: "Su hotel no existe en esta base de datos" })
                     if (!HotelEncontrado) console.log("Su hotel no existe en esta base de datos")
 
                     HabitacionModelo.IdHotel = HotelEncontrado._id;
@@ -44,15 +42,15 @@ function AgregarUnHabitacion(req, res) {
                     HabitacionModelo.save((err, HabitacionGuardada) => {
                         if (err) return res.status(500).send({ Advertencia: "Error en la petición de guardado" })
                         if (err) console.log("Error en la petición de guardado")
-                        if (!HabitacionGuardada) return res.status(500).send({ Advertencia: "La habitación no pudo guardarse" })
+                        if (!HabitacionGuardada) return res.status(200).send({ Advertencia: "La habitación no pudo guardarse" })
                         if (!HabitacionGuardada) console.log("La habitación no pudo guardarse")
-                        return res.status(500).send({ HabitacionGuardada })
+                        return res.status(200).send({ HabitacionGuardada })
                     })
                 })
             })
         } else {
             console.log("Esta habitación ya existe")
-            res.status(500).send({ mensaje: "Esta habitación ya existe" })
+            res.status(200).send({ mensaje: "Esta habitación ya existe" })
         }
     })
 
@@ -66,7 +64,7 @@ function VerTodasLasHabitaciones(req, res) {
             res.status(200).send({ hotelencontrado })
         } else {
             console.log("No se encontro ninguna habitación")
-            res.status(500).send({ Advertencia: "No se encontro ninguna habitación" })
+            res.status(200).send({ Advertencia: "No se encontro ninguna habitación" })
         }
     })
 }
@@ -93,23 +91,16 @@ function VerHabitacionesPorTipoDeHabitacion(req, res) {
 }
 
 function VerHabitacionPorHotel(req, res) {
-    var params = req.body;
-    Hoteles.findOne({ $or: [{ nombre: params.nombre }] }).exec((err, TipoDeHabitacionEncontrado) => {
+    var IdDeLaHabitacion = req.params.IdDeLaHabitacion;
+    Habitacion.find({ $or: [{ IdHotel: IdDeLaHabitacion }] }).exec((err, hotelencontrado) => {
         if (err) return res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
         if (err) console.log("Error en la petición de busqueda")
-        if (!TipoDeHabitacionEncontrado) return res.status(500).send({ Advertencia: "No se encontro ningun hotel" })
-        if (!TipoDeHabitacionEncontrado) console.log("No se encontro ningun hotel")
-
-        Habitacion.find({ $or: [{ IdHotel: TipoDeHabitacionEncontrado._id }] }).exec((err, hotelencontrado) => {
-            if (err) return res.status(500).send({ Advertencia: "Error en la petición de busqueda" })
-            if (err) console.log("Error en la petición de busqueda")
-            if (hotelencontrado && hotelencontrado.length >= 1) {
-                res.status(200).send({ hotelencontrado })
-            } else {
-                console.log("No se encontro ninguna habitación")
-                res.status(500).send({ Advertencia: "No se encontro ninguna habitación" })
-            }
-        })
+        if (hotelencontrado && hotelencontrado.length >= 1) {
+            res.status(200).send({ hotelencontrado })
+        } else {
+            console.log("No se encontro ninguna habitación")
+            res.status(500).send({ Advertencia: "No se encontro ninguna habitación" })
+        }
     })
 }
 
